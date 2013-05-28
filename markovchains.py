@@ -96,9 +96,6 @@ class MarkovChains(object):
             result.append({'name': words[i], 'isstart': isstart})
         return result
 
-    """
-    連想配列を DB に保存
-    """
     def register_data(self):
         self.register_chains()
         self.register_userchains()
@@ -133,9 +130,6 @@ class MarkovChains(object):
                     else:
                         self.db.insert_userchain(chain)
 
-    """
-    文章生成
-    """
     def make_sentence(self, user=None, word=None):
         limit = 1
 
@@ -208,5 +202,5 @@ if __name__ == '__main__':
 	obj = MarkovChains(order_num=2)
 	obj.analyze_sentence(u'I am a boy. You are a girl. It is a dog.')
 	obj.analyze_sentence(u'She is a star. It is a bus. He is a cat.')
-#	obj.show_chaindic()
+	obj.show_chaindic()
 	print obj.make_sentence()

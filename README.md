@@ -1,4 +1,4 @@
-python-markovchain
+Markovy
 ==================
 
 Markov chain library written in Python.

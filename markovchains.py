@@ -14,6 +14,8 @@ class MarkovChains(object):
 
     def _get_punctuation(self):
         punctuation_words = {
+		u'(': 0,
+		u')': 0,
 		u'。': 0,
 		u'．': 0,
 		u'.': 0,
@@ -40,7 +42,7 @@ class MarkovChains(object):
 
     def _split_sentences(self, text):
         ps = self._get_punctuation()
-        ps = re.compile(u'[%s]' % ('|'.join(ps.keys())))
+        ps = re.compile(u'[%s]+' % ('|'.join(ps.keys())))
 	det = ps.split(text)
 	ret = filter(None, det)
         return ret
